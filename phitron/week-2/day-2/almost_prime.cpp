@@ -45,8 +45,6 @@ int main()
         }
     }
 
-    cout << "Bangladesh won by 6 wkts";
-
     cout << ans;
     return 0;
 }
