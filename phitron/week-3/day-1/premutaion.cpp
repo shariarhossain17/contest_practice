@@ -5,39 +5,35 @@ void solve()
 {
     int n;
     cin >> n;
-
-    int ar[n][n];
-
-    map<int, int> mp;
+    int arr[n][n - 1];
     map<int, int> m;
-    for (int i = 0; i < n - 1; i++)
+    int c;
+    for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n - 1; j++)
         {
-            cin >> ar[i][j];
+            cin >> arr[i][j];
+            if (j == n - 2)
+            {
+                if (m[arr[i][j]] >= 1)
+                    c = arr[i][j];
+
+                m[arr[i][j]]++;
+            }
         }
     }
-    for (int i = 0; i < n - 1; i++)
+    for (int i = 0; i < n; i++)
     {
-        mp[ar[i][n - 1]] = i;
-        mp[ar[i][n - 1]]++;
+        if (arr[i][n - 2] != c)
+        {
+            for (int j = 0; j < n - 1; j++)
+            {
+                cout << arr[i][j] << " ";
+            }
+            break;
+        }
     }
-
-    int idx = 0, val;
-    for (auto u : m)
-    {
-        if (u.second == 1)
-            idx = u.first;
-        else
-            val = u.first;
-    }
-
-    for (int i = 1; i < n; i++)
-    {
-        cout << ar[mp[idx]][i] << " ";
-    }
-    cout << val;
-    cout << endl;
+    cout << c << endl;
 }
 int main()
 {
