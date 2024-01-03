@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void solve()
+void solve(int t)
 {
 
-    long long n, row, col, cases = 0;
+    long long n, row, col;
     cin >> n;
 
     int sq = ceil(sqrt(n * 1.0));
@@ -20,18 +20,15 @@ void solve()
     {
         col = sq;
         row = (n) - ((sq - 1)) * ((sq - 1));
-
-        cout << row;
     }
 
     if (sq & 1)
     {
         swap(x, sq);
     }
-    cases++;
 
     cout << "Case"
-         << " " << cases << ": " << col << " " << row;
+         << " " << t << ": " << col << " " << row;
 
     cout << endl;
 }
@@ -41,9 +38,11 @@ int main()
     cin.tie(nullptr);
     int t;
     cin >> t;
+    int cnt = 0;
     while (t--)
     {
-        solve();
+        cnt++;
+        solve(cnt);
     }
     return 0;
 }
