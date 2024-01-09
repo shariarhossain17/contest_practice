@@ -10,10 +10,8 @@ void solve(int t)
     int m;
     cin >> m;
 
-    bool flag = false;
-
     cout << "Case " << t << ":\n";
-    while (m--)
+    for (int i = 1; i <= m; i++)
     {
         int x, y;
         cin >> x >> y;
