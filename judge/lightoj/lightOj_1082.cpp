@@ -13,21 +13,12 @@ void solve(int t)
         cin >> ar[i];
     }
 
+    cout << "Case " << t << ":"
+         << "\n";
     for (int i = 1; i <= q; i++)
     {
         int a, b;
         cin >> a >> b;
-
-        int ans = INT_MAX;
-
-        for (int j = a - 1; j < b; j++)
-        {
-            if (ar[j] < ans)
-            {
-                ans = ar[j];
-            }
-        }
-        cout << ans << endl;
     }
 }
 int main()
