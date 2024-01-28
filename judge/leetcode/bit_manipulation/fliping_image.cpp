@@ -24,20 +24,5 @@ int main()
         images.push_back(v);
     }
 
-    vector<vector<int>> result;
-
-    for (const vector<int> &row : images)
-    {
-
-        vector<int> final_ar;
-
-        for (int i = row.size() - 1; i >= 0; i--)
-        {
-            final_ar.push_back((row[i] ^ 1));
-        }
-
-        result.push_back(final_ar);
-    }
-
-    return 0;
+        return 0;
 }
