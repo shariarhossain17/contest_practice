@@ -1,7 +1,8 @@
 {
   "files.associations": {
     "*.js": "javascript",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "functional": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }
