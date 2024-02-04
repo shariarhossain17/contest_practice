@@ -38,7 +38,7 @@ int main()
 
     vector<int> result;
     result.push_back(even);
-    result.push_back(odd)
+    result.push_back(odd);
 
-        return 0;
+    return 0;
 }
