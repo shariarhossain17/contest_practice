@@ -23,41 +23,18 @@ void solve()
     for (int i = 0; i < n; i++)
         cin >> v[i];
 
-    set<pair<int, int>> pairs;
-
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < 32; i++)
     {
-        for (int j = 0; j < n; j++)
+        int cnt = 0;
+
+        for (int val : v)
         {
-
-            int ai = v[i];
-            int aj = v[j];
-
-            if (ai > aj)
+            if (val >= pow(2, i) and val < pow(2, (i + 1)))
             {
-                swap(ai, aj);
+                cnt++;
             }
-            pairs.insert({ai, aj});
         }
     }
-
-    int cnt = 0;
-
-    for (auto it : pairs)
-    {
-        // cout << it.first << " " << it.second << endl;
-        int x = it.first;
-        int y = it.second;
-
-        cout << (x & y) << " " << (x ^ y) << endl;
-
-        // if ((x & y) >= (x ^ y))
-        // {
-        //     cnt++;
-        // }
-    }
-
-    cout << cnt;
 }
 int main()
 {
