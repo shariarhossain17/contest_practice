@@ -1,1 +1,2 @@
-sort(v.begin(), v.end());
+for (int i : v)
+    //     cout << i << endl;
