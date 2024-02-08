@@ -17,18 +17,40 @@ void solve()
 {
     int n;
     cin >> n;
-
     int ar[n];
-    array_input_int(ar, 0, n);
 
-    int result = ar[0];
+    for (int i = 0; i < n; i++)
+        cin >> ar[i];
 
-    for (int i = 1; i < n; i++)
+    int bit[33] = {0};
+
+    for (int j = 0; j < 32; j++)
     {
-        result &= ar[i];
+        for (int i = 0; i < n; i++)
+        {
+            if (ar[i] & (1 << j))
+                bit[j]++;
+        }
     }
 
-    cout << result << endl;
+    for (int i = 1; i < n + 1; i++)
+    {
+        bool flag = true;
+
+        for (int j = 0; j < 32; j++)
+        {
+            if (bit[j] % i != 0)
+            {
+                flag = false;
+                break;
+            }
+        }
+
+        if (flag)
+            cout << i << " ";
+    }
+
+    cout << endl;
 }
 int main()
 {
