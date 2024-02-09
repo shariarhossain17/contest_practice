@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 int main()
@@ -9,31 +10,37 @@ int main()
     int n;
     cin >> n;
 
-    int ar[n];
+    vector<int> v(n);
     for (int i = 0; i < n; i++)
     {
-        cin >> ar[i];
+        cin >> v[i];
     }
 
-    int sum = 0;
-    int size = 1 << n;
-    for (int i = 1; i < size; i++)
+    vector<vector<int>> result;
+
+    for (int i = 0; i < (1 << n); i++)
     {
-        int x = 0;
+        vector<int> ar;
+
         for (int j = 0; j < n; j++)
         {
-
             if (i & (1 << j))
             {
-
-                x = x ^ ar[j];
+                ar.push_back(v[j]);
             }
         }
 
-        sum += x;
+        result.push_back(ar);
     }
 
-    cout << sum;
+    // for (const vector<int> &subset : result)
+    // {
+    //     for (int element : subset)
+    //     {
+    //         cout << element << " ";
+    //     }
+    //     cout << endl;
+    // }
 
     return 0;
 }
