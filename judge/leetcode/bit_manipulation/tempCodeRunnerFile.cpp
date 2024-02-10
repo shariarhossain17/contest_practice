@@ -1,2 +1,1 @@
-for (int i : v)
-    //     cout << i << endl;
+ cout << result;
