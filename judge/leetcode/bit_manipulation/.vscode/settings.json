@@ -3,7 +3,8 @@
     "*.js": "javascript",
     "iostream": "cpp",
     "functional": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "random": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }
