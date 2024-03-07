@@ -20,9 +20,37 @@ int main()
     int n, k;
 
     cin >> n >> k;
-    int ar[n];
+    vector<int> ar(n);
+
+    ar.insert(ar.end(), ar.begin(), ar.end());
 
     array_input_int(ar, 0, n);
 
-      return 0;
+    vi res(n, 0);
+
+    // for (int i : ar)
+    // {
+    //     cout << i << endl;
+    // }
+
+    if (k == 0)
+    {
+    }
+    else if (k > 0)
+    {
+        int i = 0, j = 1, sum = 0;
+        while (i < n)
+        {
+            sum += ar[j];
+            if (j - i == k)
+            {
+                cout << sum << endl;
+                i++;
+                sum -= ar[i];
+            }
+            j++;
+        }
+    }
+
+    return 0;
 }
