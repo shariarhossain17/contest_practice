@@ -1,1 +1,1 @@
-cout << result;
+ // cout << mp[v[i]] << endl;
