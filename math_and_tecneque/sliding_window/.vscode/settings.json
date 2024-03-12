@@ -4,6 +4,7 @@
     "iostream": "cpp",
     "ostream": "cpp",
     "initializer_list": "cpp",
-    "valarray": "cpp"
+    "valarray": "cpp",
+    "iomanip": "cpp"
   }
 }
