@@ -1,1 +1,1 @@
- cout << s << endl;
+   cout << (mxX - mnX) * (mxY - mnY) << "\n";
