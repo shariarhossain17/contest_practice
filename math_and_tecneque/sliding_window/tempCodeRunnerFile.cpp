@@ -1,3 +1,4 @@
-  // if (ans == INT_MIN)
-    //     cout << v.size() - 1;
-    // else
+    if (flag)
+        cout << "YES\n";
+    else
+        cout << "NO\n";
