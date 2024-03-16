@@ -1,1 +1,4 @@
-   cout << (mxX - mnX) * (mxY - mnY) << "\n";
+    for (int v : r)
+    {
+        cout << v << " ";
+    }
