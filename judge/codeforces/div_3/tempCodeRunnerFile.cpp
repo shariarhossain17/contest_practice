@@ -1,2 +1,1 @@
-
-    cin >> s;
+ cout << ans;
