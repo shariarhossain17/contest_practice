@@ -1,1 +1,3 @@
- // cout << rem << i << endl;
+
+    // if (abs(r - p) != rem)
+    //     flag = false;
