@@ -15,17 +15,32 @@ using namespace std;
 
 void solve()
 {
-    ll n, k;
-    cin >> n >> k;
+    int n, t;
+    cin >> n >> t;
 
-    if (log2(n) < k)
+    vi a(n), b(n);
+
+    array_input_int(a, 0, n);
+    array_input_int(b, 0, n);
+
+    int max = 0, idx = -1;
+
+    for (int i = 0; i < n; i++)
     {
-        cout << n + 1 << "\n";
+        if (a[i] + i <= t)
+        {
+            if (max < b[i])
+            {
+                max = b[i];
+                idx = i;
+            }
+        }
     }
+
+    if (idx == -1)
+        cout << -1 << "\n";
     else
-    {
-        cout << (int)pow(2, k) << "\n";
-    }
+        cout << idx + 1 << endl;
 }
 int main()
 {

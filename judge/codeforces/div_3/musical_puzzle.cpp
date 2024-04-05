@@ -2,7 +2,7 @@
 using namespace std;
 
 #define ll long long
-#define newLine cout << "\n"
+#define newLine "\n"
 #define pb push_back
 #define vi vector<int>
 #define Yes cout << "YES\n"
@@ -15,17 +15,24 @@ using namespace std;
 
 void solve()
 {
-    ll n, k;
-    cin >> n >> k;
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
 
-    if (log2(n) < k)
+    set<string> unique;
+
+    for (int i = 0; i < n - 1; i++)
     {
-        cout << n + 1 << "\n";
+        string tmp = "";
+
+        tmp += s[i];
+        tmp += s[i + 1];
+
+        unique.insert(tmp);
     }
-    else
-    {
-        cout << (int)pow(2, k) << "\n";
-    }
+
+    cout << unique.size() << newLine;
 }
 int main()
 {
