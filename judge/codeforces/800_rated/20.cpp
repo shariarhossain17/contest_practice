@@ -13,22 +13,31 @@ using namespace std;
         cin >> (a[i]);           \
     }
 
-int cnt = 0;
 void solve()
 {
-    if (cnt == 4)
-        return;
-    cnt++;
+    int n, x;
+    cin >> n >> x;
 
-    solve();
-    cout << cnt;
+    if (n == 1)
+    {
+        cout << 1 << "\n";
+        return;
+    }
+
+    double flat = double(n - 2) / x;
+
+    cout << ceil(flat) + 1;
+    newLine;
 }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    solve();
-
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
     return 0;
 }
