@@ -1,30 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void f(int i, int n)
-{
-    if (i > n)
-        return;
-
-    f(i + 1, n);
-
-    cout << i << endl;
-}
-void f2(int n)
+int f(int n, int s)
 {
     if (n < 1)
-        return;
-    f2(n - 1);
+        return s;
 
-    cout << n << endl;
+    f(n - 1, s + n);
 }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
+
     int n;
     cin >> n;
+    int result = f(n, 0);
 
-    f2(n);
+    cout << result;
+
     return 0;
 }
