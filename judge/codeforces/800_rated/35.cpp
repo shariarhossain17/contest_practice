@@ -15,21 +15,17 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
-
-    cout << (n - 1) / 2;
+    int n, m;
+    cin >> n >> m;
+    cout << (n * m) / 2;
     newLine;
 }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    int t;
-    cin >> t;
-    while (t--)
-    {
-        solve();
-    }
+
+    solve();
+
     return 0;
 }

@@ -15,10 +15,16 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    int a, b;
+    cin >> a >> b;
 
-    cout << (n - 1) / 2;
+    if (a % b == 0)
+    {
+        cout << 0;
+        newLine;
+        return;
+    }
+    cout << b - a % b;
     newLine;
 }
 int main()
