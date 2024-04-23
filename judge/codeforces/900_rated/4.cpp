@@ -15,20 +15,23 @@ using namespace std;
 
 void solve()
 {
-    ll n, k;
-    cin >> n >> k;
+    string s;
+    cin >> s;
 
-    ll c;
+    bool flag = false;
 
-    if (n % 2 == 0)
-        c = n / 2;
+    for (int i = 0; i < s.size(); i++)
+    {
+        if (s[i] == 'H' || s[i] == 'Q' || s[i] == '9')
+        {
+            flag = true;
+            break;
+        }
+    }
+    if (flag)
+        Yes;
     else
-        c = (n / 2) + 1;
-
-    if (k <= c)
-        cout << (k * 2) - 1;
-    else
-        cout << (k - c) * 2;
+        No;
 }
 int main()
 {

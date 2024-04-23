@@ -15,20 +15,27 @@ using namespace std;
 
 void solve()
 {
-    ll n, k;
-    cin >> n >> k;
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++)
+        cin >> v[i];
 
-    ll c;
+    int ans = 1, x = v[0], d = 1;
 
-    if (n % 2 == 0)
-        c = n / 2;
-    else
-        c = (n / 2) + 1;
+    for (int i = 1; i < n; i++)
+    {
 
-    if (k <= c)
-        cout << (k * 2) - 1;
-    else
-        cout << (k - c) * 2;
+        if (x <= v[i])
+            d++;
+        else
+            d = 1;
+
+        x = v[i];
+        ans = max(ans, d);
+    }
+
+    cout << ans;
 }
 int main()
 {
