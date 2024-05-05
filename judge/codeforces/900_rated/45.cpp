@@ -46,11 +46,10 @@ void solve()
     int n, k;
     cin >> n >> k;
 
-    for (int i = 1; i <= k; i++)
-    {
-        int f = factor(n);
-        n += f;
-    }
+    int f = factor(n);
+    n += f;
+
+    n += (k - 1) * 2;
 
     cout << n << endl;
 }
