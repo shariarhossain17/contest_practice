@@ -1,2 +1,2 @@
 
-    newLine;
+    cout << n1;

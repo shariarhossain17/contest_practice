@@ -15,37 +15,15 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
-    vi v(n);
-    array_input_int(v, 0, n);
+    ll x, y;
+    cin >> x >> y;
 
-    int cnt = 0;
+    ll sub = x - y;
 
-    bool ok = true;
-
-    for (int i = 0; i < n; i++)
-    {
-        if (v[i] != i + 1)
-        {
-            ok = false;
-            break;
-        }
-    }
-
-    if (ok)
-    {
-        cout << 0;
-        newLine;
-        return;
-    }
-
-    if (v[0] == 1 or v[n - 1] == n)
-        cout << 1 << "\n";
-    else if (v[0] == n and v[n - 1] == 1)
-        cout << 3 << "\n";
+    if (sub == 0 || sub == 1)
+        No;
     else
-        cout << 2 << "\n";
+        Yes;
 }
 int main()
 {

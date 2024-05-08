@@ -17,35 +17,20 @@ void solve()
 {
     int n;
     cin >> n;
-    vi v(n);
-    array_input_int(v, 0, n);
-
-    int cnt = 0;
-
-    bool ok = true;
-
-    for (int i = 0; i < n; i++)
+    if (n == 1)
+        cout << 9 << "\n";
+    else if (n == 2)
+        cout << 98 << "\n";
+    else if (n >= 3)
     {
-        if (v[i] != i + 1)
+        cout << 989;
+
+        for (int i = 0; i < n - 3; i++)
         {
-            ok = false;
-            break;
+            cout << i % 10;
         }
-    }
-
-    if (ok)
-    {
-        cout << 0;
         newLine;
-        return;
     }
-
-    if (v[0] == 1 or v[n - 1] == n)
-        cout << 1 << "\n";
-    else if (v[0] == n and v[n - 1] == 1)
-        cout << 3 << "\n";
-    else
-        cout << 2 << "\n";
 }
 int main()
 {

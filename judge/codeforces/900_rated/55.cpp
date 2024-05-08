@@ -20,32 +20,19 @@ void solve()
     vi v(n);
     array_input_int(v, 0, n);
 
-    int cnt = 0;
+    bool ok = false;
 
-    bool ok = true;
-
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i < n - 1; i++)
     {
-        if (v[i] != i + 1)
+        if (v[i - 1] < v[i] && v[i] > v[i + 1])
         {
-            ok = false;
-            break;
+            Yes;
+            cout << i << " " << i + 1 << " " << i + 2 << "\n";
+            return;
         }
     }
 
-    if (ok)
-    {
-        cout << 0;
-        newLine;
-        return;
-    }
-
-    if (v[0] == 1 or v[n - 1] == n)
-        cout << 1 << "\n";
-    else if (v[0] == n and v[n - 1] == 1)
-        cout << 3 << "\n";
-    else
-        cout << 2 << "\n";
+    No;
 }
 int main()
 {
