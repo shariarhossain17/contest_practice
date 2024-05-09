@@ -15,27 +15,25 @@ using namespace std;
 
 void solve()
 {
-    long long A, B, C, D;
-    cin >> A >> B >> C >> D;
-    if (B >= A)
+    int n;
+    cin >> n;
+    vi v(n);
+    array_input_int(v, 0, n);
+
+    for (int i = 1; i < n; i++)
     {
-        cout << B << endl;
-    }
-    else
-    {
-        if (C <= D)
-        {
-            cout << -1 << endl;
-        }
+
+        if (v[i] < v[i - 1])
+            continue;
         else
         {
-            long long rem = A - B;
-            long long rept = (rem + (C - D) - 1) / (C - D);
-            cout << B + rept * C << endl;
+            Yes;
+            return;
         }
     }
-}
 
+    No;
+}
 int main()
 {
     ios_base::sync_with_stdio(false);
