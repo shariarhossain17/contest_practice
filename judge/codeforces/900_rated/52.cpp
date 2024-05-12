@@ -15,7 +15,7 @@ using namespace std;
 
 void solve()
 {
-    ll x, n, d;
+    int x, n, d;
     cin >> x >> n;
 
     switch (n % 4)

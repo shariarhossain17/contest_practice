@@ -15,7 +15,7 @@ using namespace std;
 
 void solve()
 {
-    ll n;
+    int n;
     cin >> n;
 
     n = (n + 1) / 2;

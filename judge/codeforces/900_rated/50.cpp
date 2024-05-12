@@ -15,15 +15,15 @@ using namespace std;
 
 void solve()
 {
-    ll n, ans;
+    int n, ans;
     cin >> n;
     ans = n * (n + 1) / 2;
 
     int tmp = 0;
 
-    ll k = log2(n);
+    int k = log2(n);
 
-    for (ll i = 0; i <= k; i++)
+    for (int i = 0; i <= k; i++)
     {
         tmp += pow(2, i);
     }

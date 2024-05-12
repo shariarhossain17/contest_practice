@@ -15,14 +15,14 @@ using namespace std;
 
 void solve()
 {
-    ll a, k;
+    int a, k;
     cin >> a >> k;
 
     if (k >= a)
         cout << k - a << "\n";
     else
     {
-        ll b = a - k;
+        int b = a - k;
 
         if (b % 2)
             cout << 1 << endl;

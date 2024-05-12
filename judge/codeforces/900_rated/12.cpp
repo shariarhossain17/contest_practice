@@ -15,12 +15,12 @@ using namespace std;
 
 void solve()
 {
-    ll n;
+    int n;
     cin >> n;
 
-    for (ll x = 0; x <= n; x += 2020)
+    for (int x = 0; x <= n; x += 2020)
     {
-        ll b = n - x;
+        int b = n - x;
         if (b % 2021 == 0)
         {
             Yes;

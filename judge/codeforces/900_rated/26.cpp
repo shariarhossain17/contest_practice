@@ -15,7 +15,7 @@ using namespace std;
 
 void solve()
 {
-    ll int n;
+    int int n;
     cin >> n;
     cout << n << endl;
 }

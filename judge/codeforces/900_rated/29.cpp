@@ -18,7 +18,7 @@ void solve()
     int s;
     cin >> s;
 
-    ll ans = 0;
+    int ans = 0;
 
     while (true)
     {

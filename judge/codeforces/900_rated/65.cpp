@@ -15,16 +15,22 @@ using namespace std;
 
 void solve()
 {
-    int n, k, x;
-    cin >> n >> k >> x;
+    ll n;
+    cin >> n;
 
-    int s = (k * (k + 1)) / 2;
-    int s2 = (k * (n - k + 1 + n)) / 2;
+    if (n % 2 == 1 || n <= 3)
+    {
+        cout << -1;
+        newLine;
+        return;
+    }
 
-    if (x >= s and x <= s2)
-        Yes;
-    else
-        No;
+    ll mx = n / 4;
+    ll mn = (ll)ceil((double)n / 6);
+
+    cout << mn << " " << mx;
+
+    newLine;
 }
 int main()
 {

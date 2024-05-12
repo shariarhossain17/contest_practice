@@ -15,7 +15,7 @@ using namespace std;
 
 void solve()
 {
-    ll n, q;
+    int n, q;
     cin >> n >> q;
 
     vector<long long> v(n + 1, 0), v2(n + 1, 0);
@@ -30,10 +30,10 @@ void solve()
 
     while (q--)
     {
-        ll l, r, k;
+        int l, r, k;
         cin >> l >> r >> k;
 
-        ll sum = v2[n];
+        int sum = v2[n];
 
         sum -= v2[r] - v2[l - 1];
 

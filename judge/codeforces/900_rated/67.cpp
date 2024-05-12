@@ -12,40 +12,27 @@ using namespace std;
     {                            \
         cin >> (a[i]);           \
     }
-
 void solve()
 {
-    string s;
-    cin >> s;
+    int a, b, c, d;
+    cin >> a >> b >> c >> d;
 
-    int n = s.size();
+    ll x = (ll)a * d;
+    ll y = (ll)b * c;
 
-    set<char> unique;
-
-    for (int i = 0; i < s.size(); i++)
-    {
-        unique.insert(s[i]);
-    }
-
-    if (unique.size() == 1)
-    {
-
-        No;
-    }
+    if (x == y)
+        cout << 0 << "\n";
+    else if (x == 0 or y == 0)
+        cout << 1 << "\n";
     else
     {
-        Yes;
-        if (n == 2 && s[0] == s[1])
-        {
-            cout << s[1] << " " << s[0];
-        }
-
+        if (x % y == 0 || y % x == 0)
+            cout << 1 << "\n";
         else
-        {
-            cout << s.substr(1) << s[0] << endl;
-        }
+            cout << 2 << "\n";
     }
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);

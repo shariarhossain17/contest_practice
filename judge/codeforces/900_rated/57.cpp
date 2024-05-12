@@ -15,10 +15,10 @@ using namespace std;
 
 void solve()
 {
-    ll x, y;
+    int x, y;
     cin >> x >> y;
 
-    ll sub = x - y;
+    int sub = x - y;
 
     if (sub == 0 || sub == 1)
         No;

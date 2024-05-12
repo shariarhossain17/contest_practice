@@ -15,15 +15,15 @@ using namespace std;
 
 void solve()
 {
-    ll n;
+    int n;
     cin >> n;
-    vector<ll> vec(n);
+    vector<int> vec(n);
 
     set<int> s;
 
-    ll mx = INT_MIN;
+    int mx = INT_MIN;
 
-    for (ll i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         cin >> vec[i];
         s.insert(vec[i]);
@@ -31,9 +31,9 @@ void solve()
         mx = max(mx, vec[i]);
     }
 
-    ll id = -1;
+    int id = -1;
 
-    for (ll i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         if (vec[i] != mx)
             continue;

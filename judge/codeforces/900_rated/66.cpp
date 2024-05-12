@@ -15,17 +15,40 @@ using namespace std;
 
 void solve()
 {
-    int n, k, x;
-    cin >> n >> k >> x;
+    ll a, b, n;
+    cin >> a >> b >> n;
+    vector<ll> v(n);
+    array_input_int(v, 0, n);
 
-    int s = (k * (k + 1)) / 2;
-    int s2 = (k * (n - k + 1 + n)) / 2;
+    ll ans = 0;
 
-    if (x >= s and x <= s2)
-        Yes;
-    else
-        No;
+    if (b > 1)
+    {
+        ll dif = b - 1;
+        ans += dif;
+        b -= dif;
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        b += v[i];
+
+        if (b > a)
+        {
+            ans += a - 1;
+            b = 1;
+        }
+        else
+        {
+            ans += (b - 1);
+            b = 1;
+        }
+    }
+
+    cout << ans + 1;
+    newLine;
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);

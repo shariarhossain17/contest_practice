@@ -18,41 +18,23 @@ void solve()
     int a, b, c, d;
     cin >> a >> b >> c >> d;
 
-    bool flag1 = false;
-    bool flag2 = false;
+    int misha = max(3 * a / 10, a - a / 250 * c);
+    int vashya = max(3 * b / 10, b - b / 250 * d);
 
-    if (a > b)
-    {
-        int tmp = a;
-        a = b;
-        b = tmp;
-    }
-
-    for (int i = a; i <= b; i++)
-    {
-        if (c == i)
-            flag1 = true;
-        if (d == i)
-            flag2 = true;
-    }
-    if ((flag1 and flag2) or (!flag1 and !flag2))
-    {
-        No;
-    }
+    if (misha > vashya)
+        cout << "Misha\n";
+    else if (misha < vashya)
+        cout << "Vasya\n";
     else
-    {
-        Yes;
-    }
+        cout << "Tie\n";
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    int t;
-    cin >> t;
-    while (t--)
-    {
-        solve();
-    }
+
+    solve();
+
     return 0;
 }

@@ -20,7 +20,7 @@ void solve()
     vi v(n);
     array_input_int(v, 0, n);
 
-    ll tot = 0, req = 0;
+    int tot = 0, req = 0;
 
     bool ok = true;
 

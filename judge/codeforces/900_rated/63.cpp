@@ -15,31 +15,38 @@ using namespace std;
 
 void solve()
 {
-    string s;
-    cin >> s;
+    int n;
+    cin >> n;
+    vi v(n);
+    array_input_int(v, 0, n);
 
-    int groups = 1;
-    bool transition = false;
+    sort(v.begin(), v.end());
 
-    for (int i = 1; i < s.size(); i++)
+    int max_dif = 1;
+
+    int cnt = 1;
+
+    for (int i = 1; i < n - 1; i++)
     {
-        if (s[i - 1] != s[i])
-        {
-            groups++;
-            if (s[i - 1] == '0' && s[i] == '1')
-            {
-                transition = true;
-            }
-        }
+        if (v[n - 1] == v[i])
+            max_dif++;
+        if (v[0] == v[i])
+            cnt++;
     }
 
-    if (transition)
+    if (v[0] == v[n - 1])
     {
-        groups--;
-    }
 
-    cout << groups;
-    newLine;
+        int ans = n * (n - 1);
+        cout << ans;
+        newLine;
+    }
+    else
+    {
+        int ans = 2 * (cnt * max_dif);
+        cout << ans;
+        newLine;
+    }
 }
 int main()
 {

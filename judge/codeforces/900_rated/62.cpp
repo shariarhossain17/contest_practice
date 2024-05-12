@@ -15,11 +15,29 @@ using namespace std;
 
 void solve()
 {
-    int x, y;
-    cin >> x >> y;
+    int n;
+    cin >> n;
 
-    cout << min(x, y) << " " << max(x, y);
-    newLine;
+    string s;
+
+    if (n % 2 == 0)
+    {
+        for (int i = 0; i < n / 2; i++)
+        {
+            s += '1';
+        }
+    }
+    else
+    {
+        s += '7';
+        n -= 3;
+        for (int i = 1; i <= n / 2; i++)
+        {
+            s += '1';
+        }
+    }
+
+    cout << s << endl;
 }
 int main()
 {
