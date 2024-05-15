@@ -15,27 +15,39 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    int n, k;
+    cin >> n >> k;
 
-    if (n < 3 or n == 4)
-        cout << "-1\n";
-    else if (n % 3 == 0)
-        cout << n / 3 << " 0 0\n";
-    else if (n % 3 == 1)
-        cout << (n - 7) / 3 << " 0 1\n";
-    else
-        cout << (n - 5) / 3 << " 1 0\n";
+    string s;
+    cin >> s;
+    if (n - 2 * k <= 0)
+    {
+        cout << "NO" << endl;
+        return;
+    }
+    for (int i = 0; i < k; ++i)
+    {
+        if (s[i] != s[n - i - 1])
+        {
+            cout << "NO" << endl;
+            return;
+        }
+    }
+    cout << "YES" << endl;
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
+
     int t;
     cin >> t;
+
     while (t--)
     {
         solve();
     }
+
     return 0;
 }

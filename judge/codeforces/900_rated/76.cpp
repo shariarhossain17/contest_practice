@@ -15,27 +15,31 @@ using namespace std;
 
 void solve()
 {
-    int n;
+    ll n;
     cin >> n;
 
-    if (n < 3 or n == 4)
-        cout << "-1\n";
-    else if (n % 3 == 0)
-        cout << n / 3 << " 0 0\n";
-    else if (n % 3 == 1)
-        cout << (n - 7) / 3 << " 0 1\n";
-    else
-        cout << (n - 5) / 3 << " 1 0\n";
+    ll mn = LLONG_MAX;
+
+    ll s = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        ll x;
+        cin >> x;
+        s += x;
+        mn = min(mn, x);
+    }
+
+    if (s % 2 == 1)
+        s -= mn;
+    cout << s;
 }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    int t;
-    cin >> t;
-    while (t--)
-    {
-        solve();
-    }
+
+    solve();
+
     return 0;
 }

@@ -15,17 +15,28 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    int a, b, c;
 
-    if (n < 3 or n == 4)
-        cout << "-1\n";
-    else if (n % 3 == 0)
-        cout << n / 3 << " 0 0\n";
-    else if (n % 3 == 1)
-        cout << (n - 7) / 3 << " 0 1\n";
-    else
-        cout << (n - 5) / 3 << " 1 0\n";
+    cin >> a >> b >> c;
+
+    ll ans = LLONG_MAX;
+
+    for (int i = -1; i <= 1; i++)
+    {
+        for (int j = -1; j <= 1; j++)
+        {
+            for (int k = -1; k <= 1; k++)
+            {
+
+                ll ab = a + i;
+                ll ba = b + j;
+                ll ac = c + k;
+                ans = min(ans, abs(ab - ba) + abs(ab - ac) + abs(ac - ba));
+            }
+        }
+    }
+
+    cout << ans << endl;
 }
 int main()
 {
