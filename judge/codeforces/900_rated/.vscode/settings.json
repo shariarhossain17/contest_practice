@@ -6,6 +6,12 @@
     "deque": "cpp",
     "string": "cpp",
     "vector": "cpp",
-    "random": "cpp"
+    "random": "cpp",
+    "array": "cpp",
+    "bitset": "cpp",
+    "initializer_list": "cpp",
+    "regex": "cpp",
+    "utility": "cpp",
+    "valarray": "cpp"
   }
 }
