@@ -6,6 +6,8 @@
     "vector": "cpp",
     "iostream": "cpp",
     "cstdlib": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "array": "cpp",
+    "regex": "cpp"
   }
 }
