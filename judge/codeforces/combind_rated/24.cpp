@@ -15,21 +15,17 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    int da, db;
+    cin >> da >> db;
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
-    {
-        mn += m - 5;
-    }
-
-    mx += min(m, 2);
-
-    cout << mn << " " << mx;
+    if (db == da)
+        cout << da << "1" << " " << da << "2";
+    else if (db == da + 1)
+        cout << da << "9 " << db << "0";
+    else if (da == 9 and db == 1)
+        cout << "9 10\n";
+    else
+        cout << "-1";
 }
 int main()
 {

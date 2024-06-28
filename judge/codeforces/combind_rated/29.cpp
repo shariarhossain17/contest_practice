@@ -17,19 +17,22 @@ void solve()
 {
     int n;
     cin >> n;
+    vi v(n);
+    array_input_int(v, 0, n);
+    sort(v.begin(), v.end());
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    int q;
+    cin >> q;
+
+    while (q--)
     {
-        mn += m - 5;
+        ll p;
+        cin >> p;
+
+        auto idx = upper_bound(v.begin(), v.end(), p) - v.begin();
+
+        cout << idx << endl;
     }
-
-    mx += min(m, 2);
-
-    cout << mn << " " << mx;
 }
 int main()
 {

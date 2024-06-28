@@ -15,28 +15,41 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    string s;
+    cin >> s;
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    string s2 = s;
+
+    reverse(s2.begin(), s2.end());
+
+    if (s2 == s)
     {
-        mn += m - 5;
+        char c = s[0];
+
+        for (int i = 1; i < s.size(); i++)
+        {
+            s[i - 1] = s[i];
+        }
+
+        // s += c;
+
+        if (s == s2)
+            cout << "-1\n";
+        else
+            cout << s << endl;
     }
-
-    mx += min(m, 2);
-
-    cout << mn << " " << mx;
+    else
+        cout << s << endl;
 }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    solve();
-
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
     return 0;
 }

@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
 #define newLine cout << "\n"
 #define pb push_back
 #define vi vector<int>
@@ -15,22 +14,36 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    int n, t;
+    cin >> n >> t;
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    vi v(n - 1);
+
+    array_input_int(v, 0, n - 1);
+
+    int i = 0;
+
+    while (i < n - 1)
     {
-        mn += m - 5;
+        if (i == (t - 1))
+        {
+            Yes;
+            return;
+        }
+
+        i = v[i] + i;
     }
 
-    mx += min(m, 2);
-
-    cout << mn << " " << mx;
+    if (i == (t - 1))
+    {
+        Yes;
+    }
+    else
+    {
+        No;
+    }
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);

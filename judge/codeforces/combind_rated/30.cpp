@@ -15,21 +15,29 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    int n, l;
+    cin >> n >> l;
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    vi v(n);
+    array_input_int(v, 0, n);
+
+    sort(v.begin(), v.end());
+
+    int d = INT_MIN;
+
+    for (int i = 1; i < n; i++)
     {
-        mn += m - 5;
+        d = max(v[i] - v[i - 1], d);
     }
 
-    mx += min(m, 2);
+    double nd = (double)d / 2;
 
-    cout << mn << " " << mx;
+    double ans = nd;
+
+    ans = max(ans, (double)v[0] - 0);
+    ans = max(ans, (double)l - v[n - 1]);
+ 
+    cout << fixed << setprecision(10) << ans << "\n";
 }
 int main()
 {

@@ -1,65 +1,63 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 using namespace std;
-
-#define ll long long
-#define newLine cout << "\n"
-#define pb push_back
-#define vi vector<int>
-#define Yes cout << "YES\n"
-#define No cout << "NO\n"
-#define array_input_int(a, o, n) \
-    for (int i = o; i < n; i++)  \
-    {                            \
-        cin >> (a[i]);           \
-    }
-
-void solve()
+vector<vector<long long>> findFactors(long long k)
 {
-    int n;
-    cin >> n;
-    string s;
-    cin >> s;
-
-    int diffCount = 0;
-    char firstChar = s[0];
-
-    for (int i = 0; i < n; i++)
+    vector<vector<long long>> factors;
+    for (long long a = 1; a * a * a <= k; ++a)
     {
-        if (s[i] != firstChar)
+        if (k % a == 0)
         {
-            diffCount++;
-            break;
-        }
-    }
-
-    if (diffCount > 1)
-    {
-        cout << n << endl;
-    }
-    else
-    {
-
-        int pos = -1;
-        for (int i = 0; i < n; i++)
-        {
-            if (s[i] != firstChar)
+            for (long long b = a; b * b <= k / a; ++b)
             {
-                pos = i;
-                break;
+                if (k % (a * b) == 0)
+                {
+                    long long c = k / (a * b);
+                    factors.push_back({a, b, c});
+                    if (a != b)
+                        factors.push_back({a, c, b});
+                    if (b != c)
+                        factors.push_back({b, a, c});
+                    if (a != c)
+                        factors.push_back({b, c, a});
+                    if (a != b && a != c)
+                        factors.push_back({c, a, b});
+                    if (b != c && a != c)
+                        factors.push_back({c, b, a});
+                }
             }
         }
-        cout << pos + 1 << endl;
     }
+    return factors;
 }
+
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
     int t;
     cin >> t;
     while (t--)
     {
-        solve();
+        long long x, y, z, k;
+
+        cin >> x >> y >> z >> k;
+
+        vector<vector<long long>> factors = findFactors(k);
+
+        long long maxLocations = 0;
+        for (const auto &factor : factors)
+        {
+            long long a = factor[0], b = factor[1], c = factor[2];
+            if (a <= x && b <= y && c <= z)
+            {
+                long long positions = (x - a + 1) * (y - b + 1) * (z - c + 1);
+                maxLocations = max(maxLocations, positions);
+            }
+        }
+
+        cout << maxLocations << endl;
     }
+
     return 0;
 }

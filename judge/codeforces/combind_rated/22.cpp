@@ -17,19 +17,27 @@ void solve()
 {
     int n;
     cin >> n;
-
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    map<string, int> mp;
+    while (n--)
     {
-        mn += m - 5;
+        string s;
+        cin >> s;
+        mp[s]++;
     }
 
-    mx += min(m, 2);
+    string ans;
+    int cnt = 0;
 
-    cout << mn << " " << mx;
+    for (auto it : mp)
+    {
+        if (it.second > cnt)
+        {
+            cnt = it.second;
+            ans = it.first;
+        }
+    }
+
+    cout << ans;
 }
 int main()
 {

@@ -15,22 +15,29 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    int n, m;
+    cin >> n >> m;
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    vi v(n);
+    array_input_int(v, 0, n);
+
+    vi distinct_count(n, 0);
+    set<int> s;
+
+    for (int i = n - 1; i >= 0; i--)
     {
-        mn += m - 5;
+        s.insert(v[i]);
+        distinct_count[i] = s.size();
     }
 
-    mx += min(m, 2);
-
-    cout << mn << " " << mx;
+    while (m--)
+    {
+        int l;
+        cin >> l;
+        cout << distinct_count[l - 1] << endl;
+    }
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);

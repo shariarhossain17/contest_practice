@@ -18,18 +18,24 @@ void solve()
     int n;
     cin >> n;
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    vi v(n);
+    array_input_int(v, 0, n);
+
+    sort(v.begin(), v.end());
+
+    int missing_number = -1;
+
+    for (int i = 1; i < n; i++)
     {
-        mn += m - 5;
+
+        if (i != v[i])
+        {
+            missing_number = i;
+            break;
+        }
     }
 
-    mx += min(m, 2);
-
-    cout << mn << " " << mx;
+    cout << missing_number;
 }
 int main()
 {

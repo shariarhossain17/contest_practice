@@ -15,21 +15,34 @@ using namespace std;
 
 void solve()
 {
+    string s;
+    cin >> s;
+
+    vector<int> v(s.size(), 0);
+
+    for (int i = 1; i < s.size(); i++)
+    {
+        if (s[i] == s[i - 1])
+        {
+            v[i] = v[i - 1] + 1;
+        }
+        else
+        {
+            v[i] = v[i - 1];
+        }
+    }
+
     int n;
     cin >> n;
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    while (n--)
     {
-        mn += m - 5;
+        int l, r;
+        cin >> l >> r;
+
+        cout << v[r - 1] - v[l - 1];
+        newLine;
     }
-
-    mx += min(m, 2);
-
-    cout << mn << " " << mx;
 }
 int main()
 {

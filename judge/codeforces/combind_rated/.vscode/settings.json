@@ -1,6 +1,19 @@
 {
   "files.associations": {
     "*.js": "javascript",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "ostream": "cpp",
+    "valarray": "cpp",
+    "ratio": "cpp",
+    "tuple": "cpp",
+    "array": "cpp",
+    "bitset": "cpp",
+    "initializer_list": "cpp",
+    "regex": "cpp",
+    "utility": "cpp",
+    "chrono": "cpp",
+    "random": "cpp",
+    "limits": "cpp",
+    "string": "cpp"
   }
 }

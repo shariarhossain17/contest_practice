@@ -18,18 +18,9 @@ void solve()
     int n;
     cin >> n;
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
-    {
-        mn += m - 5;
-    }
+    int cnt = n / 2;
 
-    mx += min(m, 2);
-
-    cout << mn << " " << mx;
+    cout << cnt * 3;
 }
 int main()
 {

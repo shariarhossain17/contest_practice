@@ -15,21 +15,31 @@ using namespace std;
 
 void solve()
 {
+
+    map<string, int> mp;
+
     int n;
     cin >> n;
-
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    for (int i = 0; i < n; i++)
     {
-        mn += m - 5;
+        string s;
+        cin >> s;
+        mp[s]++;
     }
 
-    mx += min(m, 2);
+    int ans = INT_MIN;
+    string result;
 
-    cout << mn << " " << mx;
+    for (auto i : mp)
+    {
+        if (i.second > ans)
+        {
+            ans = i.second;
+            result = i.first;
+        }
+    }
+
+    cout << result;
 }
 int main()
 {

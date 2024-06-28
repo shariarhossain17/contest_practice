@@ -17,19 +17,30 @@ void solve()
 {
     int n;
     cin >> n;
+    vector<pair<int, int>> v(n);
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    for (int i = 0; i < n; i++)
     {
-        mn += m - 5;
+        cin >> v[i].first >> v[i].second;
     }
 
-    mx += min(m, 2);
+    sort(v.begin(), v.end());
 
-    cout << mn << " " << mx;
+    bool f = false;
+
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (v[i].second > v[i + 1].second)
+        {
+            f = true;
+            break;
+        }
+    }
+
+    if (f)
+        cout << "Happy Alex";
+    else
+        cout << "Poor Alex";
 }
 int main()
 {

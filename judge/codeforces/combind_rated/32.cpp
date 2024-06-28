@@ -15,21 +15,28 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    ll n, m;
+    cin >> n >> m;
+    vi v(m);
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    array_input_int(v, 0, m);
+
+    ll ans = v[0] - 1;
+
+    for (ll i = 1; i < m; i++)
     {
-        mn += m - 5;
+        if (v[i - 1] > v[i])
+        {
+            ans += (n - v[i - 1]) + v[i];
+        }
+
+        else
+        {
+            ans += v[i] - v[i - 1];
+        }
     }
 
-    mx += min(m, 2);
-
-    cout << mn << " " << mx;
+    cout << ans;
 }
 int main()
 {

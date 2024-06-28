@@ -17,19 +17,22 @@ void solve()
 {
     int n;
     cin >> n;
+    vi v(n);
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    array_input_int(v, 0, n);
+
+    int ans = 0;
+
+    for (int i = 1; i < n; i++)
+        ans = max(v[i] - v[i - 1], ans);
+
+    int at = INT_MAX;
+    for (int i = 0; i < n - 2; i++)
     {
-        mn += m - 5;
+        at = min(v[i + 2] - v[i], at);
     }
 
-    mx += min(m, 2);
-
-    cout << mn << " " << mx;
+    cout << max(at, ans);
 }
 int main()
 {

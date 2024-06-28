@@ -15,28 +15,34 @@ using namespace std;
 
 void solve()
 {
-    int n;
+    ll n;
     cin >> n;
+    vi v(n);
+    array_input_int(v, 0, n);
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    int cnt = 0;
+    int pvt = v[n - 1];
+
+    for (int i = n - 2; i >= 0; i--)
     {
-        mn += m - 5;
+        if (v[i] > pvt)
+        {
+            pvt = v[i];
+            cnt++;
+        }
     }
 
-    mx += min(m, 2);
-
-    cout << mn << " " << mx;
+    cout << cnt << endl;
 }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    solve();
-
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
     return 0;
 }

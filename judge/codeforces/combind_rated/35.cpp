@@ -15,21 +15,25 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    int x;
+    cin >> x;
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    int cnt = 0;
+
+    while (x > 0)
     {
-        mn += m - 5;
+        if (x % 2 == 0)
+            x /= 2;
+        else
+        {
+
+            cout << x << endl;
+            x -= 1;
+            cnt++;
+        }
     }
 
-    mx += min(m, 2);
-
-    cout << mn << " " << mx;
+    cout << cnt;
 }
 int main()
 {

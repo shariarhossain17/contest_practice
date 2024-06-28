@@ -15,28 +15,33 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    int a, b, c;
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
-    {
-        mn += m - 5;
-    }
+    cin >> a >> b >> c;
 
-    mx += min(m, 2);
-
-    cout << mn << " " << mx;
+    if (abs(b - c) % 2 == 0)
+        cout << "1 ";
+    else
+        cout << "0 ";
+    if (abs(a - c) % 2 == 0)
+        cout << "1 ";
+    else
+        cout << "0 ";
+    if (abs(a - b) % 2 == 0)
+        cout << "1 ";
+    else
+        cout << "0 ";
+    newLine;
 }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    solve();
-
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
     return 0;
 }

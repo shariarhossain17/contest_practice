@@ -17,26 +17,34 @@ void solve()
 {
     int n;
     cin >> n;
-
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    string s;
+    cin >> s;
+    int i = 0;
+    int open = 0;
+    while (i < n)
     {
-        mn += m - 5;
+
+        if (s[i] == '(')
+            open++;
+        else
+        {
+            if (open > 0)
+                open--;
+        }
+        i++;
     }
 
-    mx += min(m, 2);
-
-    cout << mn << " " << mx;
+    cout << open << endl;
 }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    solve();
-
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
     return 0;
 }

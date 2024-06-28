@@ -18,18 +18,19 @@ void solve()
     int n;
     cin >> n;
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    int ans = 0;
+    while (n)
     {
-        mn += m - 5;
+        while (n % 2 == 0)
+        {
+            n /= 2;
+        }
+        ans++;
+        n -= 1;
+        ans++;
     }
 
-    mx += min(m, 2);
-
-    cout << mn << " " << mx;
+    cout << (ans + 1) / 2;
 }
 int main()
 {

@@ -15,22 +15,36 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    ll x;
+    cin >> x;
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    string ans;
+
+    while (x)
     {
-        mn += m - 5;
+        ll t = x % 10;
+        x /= 10;
+
+        int rem = 9 - t;
+
+        if (rem < t)
+        {
+            ans += to_string(rem);
+        }
+        else
+        {
+
+            ans += to_string(t);
+        }
     }
 
-    mx += min(m, 2);
+    reverse(ans.begin(), ans.end());
 
-    cout << mn << " " << mx;
+    if (ans[0] == '0')
+        ans[0] = '9';
+    cout << ans << "\n";
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);

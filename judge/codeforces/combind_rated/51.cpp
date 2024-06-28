@@ -15,22 +15,21 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    int n, m;
+    cin >> n >> m;
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    int ans = n;
+
+    while (n > 0)
     {
-        mn += m - 5;
+        n -= m;
+        ans += 1;
+        n += 1;
     }
 
-    mx += min(m, 2);
-
-    cout << mn << " " << mx;
+    cout << ans - 1;
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);

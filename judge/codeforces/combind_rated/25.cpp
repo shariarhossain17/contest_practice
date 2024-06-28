@@ -13,30 +13,42 @@ using namespace std;
         cin >> (a[i]);           \
     }
 
+int gcd(int a, int b)
+{
+    if (b == 0)
+        return a;
+
+    return gcd(b, a % b);
+}
+
 void solve()
 {
     int n;
     cin >> n;
 
-    int k = n / 7;
-    int m = n % 7;
-    int mn = k * 2;
-    int mx = k * 2;
-    if (m >= 6)
+    vi v(n);
+
+    array_input_int(v, 0, n);
+
+    int num = v[0];
+
+    for (int i = 0; i < n; i++)
     {
-        mn += m - 5;
+        num = gcd(num, v[i]);
     }
 
-    mx += min(m, 2);
-
-    cout << mn << " " << mx;
+    cout << v[n - 1] / num << "\n";
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    solve();
-
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
     return 0;
 }
