@@ -22,7 +22,6 @@ void solve()
 
     array_input_int(v, 0, n);
 
-    vector<int> ans;
     // brute force
     // for (int i = 0; i < n; i++)
     // {
@@ -37,32 +36,50 @@ void solve()
     //     }
     // }
 
-    // optimal
+    // better
 
-    ll s = 0;
-    int i = 0, j = 0;
+    // map<int, int> mp;
 
-    while (i < n and j < n)
+    // for (int i = 0; i < n; i++)
+    // {
+    //     int need = t - v[i];
+
+    //     if (mp.find(need) == mp.end())
+    //     {
+    //         mp[v[i]] = i;
+    //     }
+
+    //     else
+    //     {
+    //         cout << mp[need] << " " << i;
+    //         return;
+    //     }
+    // }
+
+    // better
+
+    sort(v.begin(), v.end());
+
+    for (auto i : v)
+        cout << i << " " << endl;
+
+    int i = 0, j = n - 1;
+
+    while (i < j)
     {
-        s += v[j];
-        while (s > t)
-        {
-            s -= v[i];
-            i++;
-        }
+        int s = v[i] + v[j];
 
         if (s == t)
         {
-            ans.push_back(i);
-            ans.push_back(j);
-            break;
+            cout << i << " " << j;
+            return;
         }
 
-        j++;
+        if (s > t)
+            j--;
+        else
+            i++;
     }
-
-    for (int i : ans)
-        cout << i << " ";
 }
 int main()
 {
