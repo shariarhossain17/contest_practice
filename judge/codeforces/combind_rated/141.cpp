@@ -15,25 +15,27 @@ using namespace std;
 
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
+    int n;
+    cin >> n;
+    string s1, s2;
+    cin >> s1 >> s2;
 
-    vi v(n);
-
-    array_input_int(v, 0, n);
-
-    int ans = INT_MAX;
-
-    for (int i = 0; i < n; i++)
+    if (s2 == "month")
     {
-        if (k % v[i] == 0)
-        {
-
-            ans = min(ans, k / v[i]);
-        }
+        if (n == 31)
+            cout << 7 << endl;
+        else if (n == 30)
+            cout << 11;
+        else
+            cout << 12;
     }
-
-    cout << ans;
+    else
+    {
+        if (n == 5 or n == 6)
+            cout << 53;
+        else
+            cout << 52;
+    }
 }
 int main()
 {

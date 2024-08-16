@@ -15,32 +15,40 @@ using namespace std;
 
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
+    ll x, y, a, b;
 
-    vi v(n);
+    cin >> x >> y >> a >> b;
 
-    array_input_int(v, 0, n);
+    ll ans = 0;
 
-    int ans = INT_MAX;
+    ll mx = max(x, y);
+    ll mn = min(x, y);
 
-    for (int i = 0; i < n; i++)
+    ll dif = mn - 0;
+    ll dif2 = mx - mn;
+    if (2 * a < b)
     {
-        if (k % v[i] == 0)
-        {
 
-            ans = min(ans, k / v[i]);
-        }
+        ans += 2 * a * dif;
+        ans += dif2 * a;
+    }
+    else
+    {
+        ans += b * dif;
+        ans += dif2 * a;
     }
 
-    cout << ans;
+    cout << ans << endl;
 }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    solve();
-
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
     return 0;
 }

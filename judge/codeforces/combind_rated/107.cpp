@@ -15,25 +15,41 @@ using namespace std;
 
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
+    int n;
+    cin >> n;
 
-    vi v(n);
-
+    vector<ll> v(n);
     array_input_int(v, 0, n);
 
-    int ans = INT_MAX;
+    map<int, int> mp;
 
-    for (int i = 0; i < n; i++)
+    for (ll i = 0; i < n; i++)
     {
-        if (k % v[i] == 0)
-        {
-
-            ans = min(ans, k / v[i]);
-        }
+        mp[v[i]] = i;
     }
 
-    cout << ans;
+    ll s = 0, va = 0;
+
+    int m;
+    cin >> m;
+    while (m--)
+    {
+        int a;
+        cin >> a;
+
+        ll idx = -1;
+
+        if (mp.find(a) != mp.end())
+        {
+            idx = mp[a];
+        }
+
+        s += idx + 1;
+        ll tmp = (n - 1) - idx;
+        va += tmp + 1;
+    }
+
+    cout << s << " " << va;
 }
 int main()
 {

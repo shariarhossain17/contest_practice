@@ -1,1 +1,1 @@
-         s = 0;
+cout << cnt << endl;

@@ -15,26 +15,38 @@ using namespace std;
 
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
+    int n;
+    cin >> n;
 
     vi v(n);
-
     array_input_int(v, 0, n);
 
-    int ans = INT_MAX;
+    sort(v.begin(), v.end());
 
+    ll s = 0;
     for (int i = 0; i < n; i++)
-    {
-        if (k % v[i] == 0)
-        {
+        s += v[i];
 
-            ans = min(ans, k / v[i]);
+    double avg = round(static_cast<double>(s) / n);
+
+    if (avg == 5)
+        cout << 0 << "\n";
+    else
+    {
+        for (int i = 0; i < n; i++)
+        {
+            int rem = abs(v[i] - 5);
+            s += rem;
+            avg = round(static_cast<double>(s) / n);
+            if (avg == 5)
+            {
+                cout << i + 1;
+                return;
+            }
         }
     }
-
-    cout << ans;
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);

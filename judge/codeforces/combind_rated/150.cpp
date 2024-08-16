@@ -15,26 +15,19 @@ using namespace std;
 
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
+    ll n, m;
+    cin >> n >> m;
 
-    vi v(n);
+    ll participants_per_team = n / m;
+    ll remainder = n % m;
 
-    array_input_int(v, 0, n);
+    ll min_pairs = remainder * ((participants_per_team + 1) * participants_per_team) / 2 +
+                   (m - remainder) * (participants_per_team * (participants_per_team - 1)) / 2;
+    ll max_pairs = ((n - (m - 1)) * (n - m)) / 2;
 
-    int ans = INT_MAX;
-
-    for (int i = 0; i < n; i++)
-    {
-        if (k % v[i] == 0)
-        {
-
-            ans = min(ans, k / v[i]);
-        }
-    }
-
-    cout << ans;
+    cout << min_pairs << " " << max_pairs << endl;
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);

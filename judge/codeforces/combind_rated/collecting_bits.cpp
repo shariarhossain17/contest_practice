@@ -15,25 +15,41 @@ using namespace std;
 
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
+    int k;
+    cin >> k;
 
-    vi v(n);
+    vector<int> v(10, 0);
 
-    array_input_int(v, 0, n);
+    char ar[4][4];
 
-    int ans = INT_MAX;
-
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < 4; i++)
     {
-        if (k % v[i] == 0)
+        for (int j = 0; j < 4; j++)
         {
+            cin >> ar[i][j];
 
-            ans = min(ans, k / v[i]);
+            if (ar[i][j] == '.')
+                continue;
+            else
+            {
+                v[ar[i][j] - '0']++;
+            }
         }
     }
 
-    cout << ans;
+    for (int i = 1; i < 10; i++)
+    {
+        if (v[i] == 0)
+            continue;
+        else if (v[i] > k * 2)
+        {
+
+            No;
+            return;
+        }
+    }
+
+    Yes;
 }
 int main()
 {

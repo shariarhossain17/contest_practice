@@ -19,21 +19,30 @@ void solve()
     cin >> n >> k;
 
     vi v(n);
-
     array_input_int(v, 0, n);
 
-    int ans = INT_MAX;
+    int ans = -1;
+
+    int ti = INT_MIN;
 
     for (int i = 0; i < n; i++)
     {
-        if (k % v[i] == 0)
-        {
+        int cnt = 0;
 
-            ans = min(ans, k / v[i]);
+        while (v[i] > 0)
+        {
+            v[i] -= k;
+            cnt++;
+        }
+
+        if (cnt >= ti)
+        {
+            ti = cnt;
+            ans = i;
         }
     }
 
-    cout << ans;
+    cout << ans + 1;
 }
 int main()
 {

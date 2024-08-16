@@ -13,27 +13,29 @@ using namespace std;
         cin >> (a[i]);           \
     }
 
+int mod_recursion(int n, int b, int mod)
+{
+    if (b == 0)
+        return 1;
+
+    if (b % 2 == 1)
+    {
+        return (n % mod * mod_recursion(n, b - 1, mod)) % mod;
+    }
+    else
+    {
+        int x = mod_recursion(n % mod, b / 2, mod) % mod;
+        return (x * x) % mod;
+    }
+}
+
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
 
-    vi v(n);
+    int n, b, mod;
+    cin >> n >> b >> mod;
 
-    array_input_int(v, 0, n);
-
-    int ans = INT_MAX;
-
-    for (int i = 0; i < n; i++)
-    {
-        if (k % v[i] == 0)
-        {
-
-            ans = min(ans, k / v[i]);
-        }
-    }
-
-    cout << ans;
+    cout << mod_recursion(n, b, mod);
 }
 int main()
 {

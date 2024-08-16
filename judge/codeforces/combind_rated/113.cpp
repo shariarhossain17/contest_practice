@@ -18,23 +18,36 @@ void solve()
     int n, k;
     cin >> n >> k;
 
-    vi v(n);
-
-    array_input_int(v, 0, n);
-
-    int ans = INT_MAX;
+    string s;
+    cin >> s;
+    map<char, int> mp;
 
     for (int i = 0; i < n; i++)
     {
-        if (k % v[i] == 0)
-        {
-
-            ans = min(ans, k / v[i]);
-        }
+        mp[s[i]]++;
     }
 
-    cout << ans;
+    bool f = true;
+
+    int cnt = 0;
+
+    for (auto it : mp)
+    {
+        for (int i = 1; i <= k; i++)
+        {
+            if (it.second > 0)
+                it.second--;
+        }
+
+        cnt += it.second;
+    }
+
+    if (cnt > 0)
+        No;
+    else
+        Yes;
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);

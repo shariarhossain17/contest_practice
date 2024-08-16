@@ -15,26 +15,41 @@ using namespace std;
 
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
 
-    vi v(n);
-
-    array_input_int(v, 0, n);
-
-    int ans = INT_MAX;
+    string ans = s;
+    int carry = 1;
 
     for (int i = 0; i < n; i++)
     {
-        if (k % v[i] == 0)
-        {
+        if (carry == 0)
+            break;
 
-            ans = min(ans, k / v[i]);
+        if (s[i] == '1')
+        {
+            ans[i] = '0';
+            carry = 1;
+        }
+        else
+        {
+            ans[i] = '1';
+            carry = 0;
         }
     }
 
-    cout << ans;
+    int cnt = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (s[i] != ans[i])
+            cnt++;
+    }
+
+    cout << cnt << endl;
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);

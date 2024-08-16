@@ -1,3 +1,5 @@
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -15,32 +17,44 @@ using namespace std;
 
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
+
+    int n, x;
+    cin >> n >> x;
 
     vi v(n);
 
     array_input_int(v, 0, n);
 
-    int ans = INT_MAX;
+    int e = 0;
+    int o = 0;
 
     for (int i = 0; i < n; i++)
     {
-        if (k % v[i] == 0)
-        {
-
-            ans = min(ans, k / v[i]);
-        }
+        if (v[i] % 2 == 0)
+            e++;
+        else
+            o++;
     }
 
-    cout << ans;
+    for (int i = 1; i <= o; i += 2)
+    {
+        if (i + e >= x and i <= x)
+        {
+            Yes;
+            return;
+        }
+    }
+    No;
 }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    solve();
-
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
     return 0;
 }

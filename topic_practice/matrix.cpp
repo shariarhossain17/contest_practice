@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 #define ll long long
 #define newLine cout << "\n"
 #define pb push_back
@@ -15,25 +14,33 @@ using namespace std;
 
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
 
-    vi v(n);
-
-    array_input_int(v, 0, n);
-
-    int ans = INT_MAX;
+    int n, m;
+    cin >> n >> m;
+    vector<vector<int>> ar(n, vector<int>(m));
 
     for (int i = 0; i < n; i++)
     {
-        if (k % v[i] == 0)
+        for (int j = 0; j < m; j++)
         {
-
-            ans = min(ans, k / v[i]);
+            cin >> ar[i][j];
         }
     }
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            cout << ar[i][j] << " ";
+        }
+        newLine;
+    }
 
-    cout << ans;
+    newLine;
+
+    for (int i = 0; i < m; i++)
+    {
+        cout << ar[0][i] << " ";
+    }
 }
 int main()
 {

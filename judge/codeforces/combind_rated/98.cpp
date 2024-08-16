@@ -13,34 +13,45 @@ using namespace std;
         cin >> (a[i]);           \
     }
 
+bool palindrome(string s)
+{
+    string s1 = s;
+
+    return s1 == s;
+}
+
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
+    int n;
+    cin >> n;
 
     vi v(n);
-
     array_input_int(v, 0, n);
-
-    int ans = INT_MAX;
 
     for (int i = 0; i < n; i++)
     {
-        if (k % v[i] == 0)
+        for (int j = i + 2; j < n; j++)
         {
-
-            ans = min(ans, k / v[i]);
+            if (v[i] == v[j])
+            {
+                Yes;
+                return;
+            }
         }
     }
 
-    cout << ans;
+    No;
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    solve();
-
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
     return 0;
 }

@@ -19,22 +19,29 @@ void solve()
     cin >> n >> k;
 
     vi v(n);
-
     array_input_int(v, 0, n);
 
-    int ans = INT_MAX;
+    int rem = 0, day = 0;
 
     for (int i = 0; i < n; i++)
     {
-        if (k % v[i] == 0)
-        {
+        rem += v[i];
+        day++;
 
-            ans = min(ans, k / v[i]);
+        int take = min(8, rem);
+        k -= take;
+        rem -= take;
+
+        if (k <= 0)
+        {
+            cout << day;
+            return;
         }
     }
 
-    cout << ans;
+    cout << -1;
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);

@@ -15,25 +15,30 @@ using namespace std;
 
 void solve()
 {
-    int n, k;
+    ll n, k;
+
     cin >> n >> k;
 
-    vi v(n);
+    vector<long long> v(n);
 
     array_input_int(v, 0, n);
 
-    int ans = INT_MAX;
+    sort(v.begin(), v.end());
 
-    for (int i = 0; i < n; i++)
+    if (k == 0)
     {
-        if (k % v[i] == 0)
-        {
-
-            ans = min(ans, k / v[i]);
-        }
+        cout << (v[0] == 1 ? -1 : 1);
+        return;
     }
-
-    cout << ans;
+    if (k == n)
+        cout << v.back();
+    else
+    {
+        if (v[k] == v[k - 1])
+            cout << -1;
+        else
+            cout << v[k - 1];
+    }
 }
 int main()
 {

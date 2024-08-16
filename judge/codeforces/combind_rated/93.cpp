@@ -15,25 +15,13 @@ using namespace std;
 
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
 
-    vi v(n);
+    double l, p, q;
+    cin >> l >> p >> q;
 
-    array_input_int(v, 0, n);
+    double d = (l / (p + q));
 
-    int ans = INT_MAX;
-
-    for (int i = 0; i < n; i++)
-    {
-        if (k % v[i] == 0)
-        {
-
-            ans = min(ans, k / v[i]);
-        }
-    }
-
-    cout << ans;
+    cout << d * p;
 }
 int main()
 {

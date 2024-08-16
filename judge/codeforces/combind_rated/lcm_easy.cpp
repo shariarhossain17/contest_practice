@@ -18,29 +18,27 @@ void solve()
     int n, k;
     cin >> n >> k;
 
-    vi v(n);
-
-    array_input_int(v, 0, n);
-
-    int ans = INT_MAX;
-
-    for (int i = 0; i < n; i++)
+    if (n % 2)
+        cout << 1 << " " << n / 2 << " " << n / 2 << "\n";
+    else
     {
-        if (k % v[i] == 0)
+        if (n % 4 == 0)
+            cout << n / 2 << " " << n / 4 << " " << n / 4 << "\n";
+        else
         {
-
-            ans = min(ans, k / v[i]);
+            cout << 2 << " " << n / 2 - 1 << " " << n / 2 - 1 << "\n";
         }
     }
-
-    cout << ans;
 }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    solve();
-
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
     return 0;
 }

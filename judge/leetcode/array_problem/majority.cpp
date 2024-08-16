@@ -99,8 +99,11 @@ void solve()
 {
     int n;
     cin >> n;
-    vi v(n);
-    array_input_int(v, 0, n);
+    // vi v(n);
+    // array_input_int(v, 0, n);
+
+    string v;
+    cin >> v;
 
     int cnt = 0, el;
 

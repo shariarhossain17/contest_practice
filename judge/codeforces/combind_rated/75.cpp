@@ -15,32 +15,40 @@ using namespace std;
 
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
+    ll x;
+    cin >> x;
 
-    vi v(n);
-
-    array_input_int(v, 0, n);
-
-    int ans = INT_MAX;
-
-    for (int i = 0; i < n; i++)
+    unordered_set<ll> cubes;
+    for (ll i = 1; i * i * i <= x; i++)
     {
-        if (k % v[i] == 0)
-        {
+        ll a = i * i * i;
+        cubes.insert(a);
+    }
 
-            ans = min(ans, k / v[i]);
+    for (ll i = 1; i * i * i <= x; i++)
+    {
+        ll b = i * i * i;
+        if (cubes.count(x - b))
+        {
+            Yes;
+            return;
         }
     }
 
-    cout << ans;
+    No;
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    solve();
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
 
     return 0;
 }

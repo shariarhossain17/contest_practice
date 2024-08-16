@@ -15,26 +15,31 @@ using namespace std;
 
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
+    int n;
+    cin >> n;
 
     vi v(n);
-
     array_input_int(v, 0, n);
-
     int ans = INT_MAX;
 
     for (int i = 0; i < n; i++)
     {
-        if (k % v[i] == 0)
-        {
+        int x = v[i];
+        int s = 0;
 
-            ans = min(ans, k / v[i]);
+        for (int j = 0; j < x; j++)
+        {
+            int m;
+            cin >> m;
+            s += m * 5;
         }
+
+        ans = min(ans, s + (x * 15));
     }
 
-    cout << ans;
+    cout << ans << endl;
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);

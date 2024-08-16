@@ -13,27 +13,33 @@ using namespace std;
         cin >> (a[i]);           \
     }
 
-void solve()
+void moesVoting()
 {
-    int n, k;
-    cin >> n >> k;
+    string s;
+    cin >> s;
 
-    vi v(n);
+    int cnt = 0;
+    char ans;
 
-    array_input_int(v, 0, n);
-
-    int ans = INT_MAX;
-
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < s.size(); i++)
     {
-        if (k % v[i] == 0)
-        {
 
-            ans = min(ans, k / v[i]);
-        }
+        cout << ans << endl;
+
+        if (cnt == 0)
+            ans = s[i];
+
+        if (s[i] == ans)
+            cnt++;
+        else
+            cnt--;
     }
 
-    cout << ans;
+    // cout << ans << endl;
+}
+void solve()
+{
+    moesVoting();
 }
 int main()
 {

@@ -15,25 +15,14 @@ using namespace std;
 
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
+    string s;
+    cin >> s;
 
-    vi v(n);
+    string s1 = s;
 
-    array_input_int(v, 0, n);
+    reverse(s1.begin(), s1.end());
 
-    int ans = INT_MAX;
-
-    for (int i = 0; i < n; i++)
-    {
-        if (k % v[i] == 0)
-        {
-
-            ans = min(ans, k / v[i]);
-        }
-    }
-
-    cout << ans;
+    cout << s << s1;
 }
 int main()
 {
@@ -41,6 +30,5 @@ int main()
     cin.tie(nullptr);
 
     solve();
-
     return 0;
 }

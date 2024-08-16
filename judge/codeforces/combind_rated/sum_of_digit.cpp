@@ -13,34 +13,42 @@ using namespace std;
         cin >> (a[i]);           \
     }
 
+const int mx = 1000007;
+
+int ar[mx];
+
+int sum_of_digit(int x)
+{
+    int s = 0;
+
+    while (x)
+    {
+        s += x % 10;
+        x /= 10;
+    }
+    return s;
+}
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
 
-    vi v(n);
-
-    array_input_int(v, 0, n);
-
-    int ans = INT_MAX;
-
-    for (int i = 0; i < n; i++)
-    {
-        if (k % v[i] == 0)
-        {
-
-            ans = min(ans, k / v[i]);
-        }
-    }
-
-    cout << ans;
+    int x;
+    cin >> x;
+    cout << ar[x] << endl;
 }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
+    int t;
+    cin >> t;
 
-    solve();
-
+    for (int i = 1; i <= mx; i++)
+    {
+        ar[i] = ar[i - 1] + sum_of_digit(i);
+    }
+    while (t--)
+    {
+        solve();
+    }
     return 0;
 }

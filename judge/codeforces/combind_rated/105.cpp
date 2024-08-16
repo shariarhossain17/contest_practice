@@ -15,32 +15,39 @@ using namespace std;
 
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
+    string s;
+    cin >> s;
 
-    vi v(n);
+    vector<int> pos;
 
-    array_input_int(v, 0, n);
-
-    int ans = INT_MAX;
-
-    for (int i = 0; i < n; i++)
+    pos.push_back(0);
+    for (int i = 0; i < s.size(); i++)
     {
-        if (k % v[i] == 0)
-        {
-
-            ans = min(ans, k / v[i]);
-        }
+        if (s[i] == 'R')
+            pos.push_back(i + 1);
     }
 
-    cout << ans;
+    pos.push_back(s.size() + 1);
+
+    int mn = INT_MIN;
+
+    for (int i = 0; i < pos.size() - 1; i++)
+    {
+        mn = max(mn, pos[i + 1] - pos[i]);
+    }
+
+    cout << mn << endl;
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    solve();
-
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
     return 0;
 }
