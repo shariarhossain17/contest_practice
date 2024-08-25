@@ -45,9 +45,8 @@ void solve()
         if (nums1[i] < nums2[j] and j < m)
         {
             int tmp = nums1[i];
-            nums1[i] = nums2[j];
+            nums1[i] = nums2[j];  
 
-            nums1[n + m - 1] = nums1[i + 1];
 
             j++;
         }
