@@ -19,6 +19,7 @@
     "random": "cpp",
     "cmath": "cpp",
     "complex": "cpp",
-    "cstdlib": "cpp"
+    "cstdlib": "cpp",
+    "*.tcc": "cpp"
   }
 }
