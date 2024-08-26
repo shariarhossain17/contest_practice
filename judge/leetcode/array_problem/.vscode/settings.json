@@ -20,6 +20,7 @@
     "cmath": "cpp",
     "complex": "cpp",
     "cstdlib": "cpp",
-    "*.tcc": "cpp"
+    "*.tcc": "cpp",
+    "tuple": "cpp"
   }
 }
