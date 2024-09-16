@@ -50,27 +50,28 @@ int binary_search(int n, vector<int> &v, int t, int low, int high)
         binary_search(n, v, t, mid + 1, high);
     else
         binary_search(n, v, t, low, mid - 1);
-    void solve()
-    {
+}
+void solve()
+{
 
-        int n, t;
-        cin >> n >> t;
+    int n, t;
+    cin >> n >> t;
 
-        vi v(n);
-        array_input_int(v, 0, n);
-        int low = 0;
-        int high = n - 1;
-        cout << binary_search(n, v, t, low, high);
-    }
-    int main()
+    vi v(n);
+    array_input_int(v, 0, n);
+    int low = 0;
+    int high = n - 1;
+    cout << binary_search(n, v, t, low, high);
+}
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int t;
+    cin >> t;
+    while (t--)
     {
-        ios_base::sync_with_stdio(false);
-        cin.tie(nullptr);
-        int t;
-        cin >> t;
-        while (t--)
-        {
-            solve();
-        }
-        return 0;
+        solve();
     }
+    return 0;
+}
