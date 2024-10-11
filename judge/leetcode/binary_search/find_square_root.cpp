@@ -15,21 +15,40 @@ using namespace std;
 
 void solve()
 {
-    ll a, b, c, d;
 
-    cin >> a >> b >> c >> d;
+    int n;
+    cin >> n;
 
-    if ((a + b + c) == d or (a * b * c) == d or (a - b - c) == d or (a + b - c) == d or (a - b + c) == d or (a * b + c) == d or (a + b * c) == d)
-        Yes;
-    else
-        No;
+    int low = 0, high = n - 1;
+
+    int ans = 1;
+
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+
+        if (mid * mid <= n)
+        {
+            ans = max(mid, ans);
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+        }
+    }
+
+    cout << ans << endl;
 }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    solve();
-
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
     return 0;
 }

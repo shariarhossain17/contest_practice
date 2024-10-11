@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+#include <iostream>
+#include <vector>
 #define ll long long
 #define newLine cout << "\n"
 #define pb push_back
@@ -13,30 +14,34 @@ using namespace std;
         cin >> (a[i]);           \
     }
 
-int big_mod(int a, int b, int c)
+int house_robber(vector<int> &v, int n, vector<int> &dp)
 {
-    if (b == 0)
-        return 1;
+    if (n == 0)
+        return v[n];
+    if (n < 0)
+        return 0;
 
-    if (b % 2 == 1)
-    {
-        int ans = a * big_mod(a, b - 1, c) % c;
-        return ans;
-    }
-    else
-    {
-        int x = big_mod(a, b / 2, c) % c;
-        return x * x % c;
-    }
+    if (dp[n] != -1)
+        return dp[n];
+
+    int take = house_robber(v, n - 2, dp) + v[n];
+
+    int not_take = 0 + house_robber(v, n - 1, dp);
+
+    return dp[n] = max(take, not_take);
 }
 
 void solve()
 {
-    int a, b, mod;
-    cin >> a >> b >> mod;
+    int n;
+    cin >> n;
 
-    int inverse = big_mod(b, mod - 2, mod);
-    cout << (1LL * a % mod) * (inverse % mod) % mod << "\n";
+    vi nums(n);
+    array_input_int(nums, 0, n);
+
+    vector<int> dp(n, -1);
+
+    cout << house_robber(nums, n - 1, dp) << "\n";
 }
 
 int main()

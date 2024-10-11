@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
-using namespace std;
 #include <iostream>
+using namespace std;
+
 #define ll long long
 #define newLine cout << "\n"
 #define pb push_back
@@ -13,47 +14,33 @@ using namespace std;
         cin >> (a[i]);           \
     }
 
+int arr[1000001];
 void solve()
 {
 
     int n;
     cin >> n;
 
-    if (n <= 1)
+    arr[1] = 1;
+    arr[2] = 2;
+
+    for (int i = 4; i < n; i += 2)
+        arr[i]++;
+
+    for (int i = 3; i < n; i += 2)
     {
-        No;
-        return;
-    }
-
-    // bool is_prime = false;
-
-    // for (int i = 2; i <= n - 1; i++)
-    // {
-    //     if (n % i == 0)
-    //         is_prime = true;
-    // }
-
-    // if (is_prime)
-    //     No;
-    // else
-    //     Yes;
-
-    for (int i = 2; i <= n; i++)
-    {
-
-        bool is_prime = true;
-        for (int j = 2; j * j <= i; j++)
+        if (!arr[i])
         {
-            if (i % j == 0)
+            arr[i] = i;
+
+            for (int j = i * i; j < n; j += j * 2)
             {
-                is_prime = false;
-                break;
+                arr[j]++;
             }
         }
-
-        if (is_prime)
-            cout << i << " ";
     }
+
+    cout << arr[29];
 }
 int main()
 {

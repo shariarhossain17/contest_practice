@@ -15,46 +15,38 @@ using namespace std;
 
 void solve()
 {
+    int n, days;
+    cin >> n >> days;
 
-    int n;
-    cin >> n;
+    vi nums(n);
 
-    if (n <= 1)
+    array_input_int(nums, 0, n);
+
+    int low = *max_element(nums.begin(), nums.end());
+
+    int high = accumulate(nums.begin(), nums.end(), 0);
+
+    int ans = -1;
+
+    while (low <= high)
     {
-        No;
-        return;
-    }
+        int mid = low + (high - low) / 2;
+        int d1 = count_day(nums, mid);
 
-    // bool is_prime = false;
-
-    // for (int i = 2; i <= n - 1; i++)
-    // {
-    //     if (n % i == 0)
-    //         is_prime = true;
-    // }
-
-    // if (is_prime)
-    //     No;
-    // else
-    //     Yes;
-
-    for (int i = 2; i <= n; i++)
-    {
-
-        bool is_prime = true;
-        for (int j = 2; j * j <= i; j++)
+        if (d1 <= days)
         {
-            if (i % j == 0)
-            {
-                is_prime = false;
-                break;
-            }
+            ans = mid;
+            high = mid - 1;
         }
-
-        if (is_prime)
-            cout << i << " ";
+        else
+        {
+            low = mid + 1;
+        }
     }
+
+    cout << ans << endl;
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);

@@ -15,44 +15,39 @@ using namespace std;
 
 void solve()
 {
-
     int n;
     cin >> n;
 
-    if (n <= 1)
+    vi nums(n);
+    array_input_int(nums, 0, n);
+
+    int low = 1, high = n - 2;
+
+    if (nums[0] > -1 and nums[0] > nums[1])
     {
-        No;
+        cout << 1;
         return;
     }
 
-    // bool is_prime = false;
-
-    // for (int i = 2; i <= n - 1; i++)
-    // {
-    //     if (n % i == 0)
-    //         is_prime = true;
-    // }
-
-    // if (is_prime)
-    //     No;
-    // else
-    //     Yes;
-
-    for (int i = 2; i <= n; i++)
+    if (nums[n - 1] > -1 and nums[n - 1] > nums[n - 2])
     {
+        cout << n;
+        return;
+    }
 
-        bool is_prime = true;
-        for (int j = 2; j * j <= i; j++)
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+
+        if (nums[mid] > nums[mid - 1] and nums[mid] > nums[mid + 1])
         {
-            if (i % j == 0)
-            {
-                is_prime = false;
-                break;
-            }
+            cout << mid;
+            break;
         }
-
-        if (is_prime)
-            cout << i << " ";
+        else if (nums[mid] > nums[mid - 1] and nums[mid] < nums[mid + 1])
+            low = mid + 1;
+        else
+            high = mid - 1;
     }
 }
 int main()
