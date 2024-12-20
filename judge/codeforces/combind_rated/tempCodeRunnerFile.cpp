@@ -1,2 +1,2 @@
 
-    while (t--)
+    if (f || ans.empty())
