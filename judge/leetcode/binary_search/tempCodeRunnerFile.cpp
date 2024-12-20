@@ -1,29 +1,21 @@
-    int n, days;
-    cin >> n >> days;
+  // vi firs(n), second(m);
 
-    vi nums(n);
+    // array_input_int(firs, 0, n);
+    // array_input_int(second, 0, m);
 
-    array_input_int(nums, 0, n);
+    // vi v(n + m);
 
-    int low = *max_element(nums.begin(), nums.end());
-    int high = 100;
+    // v.insert(firs.end(), second.begin(), second.end());
 
-    int ans = -1;
+    // sort(v.begin(), v.end());
 
-    while (low <= high)
-    {
-        int mid = low + (high - low) / 2;
-        int d1 = count_day(nums, mid);
+    // if (n + m % 2 == 0)
+    // {
+    //     long double ans = v[n + m / 2] + v[(n + m / 2) + 1] / 2;
 
-        if (d1 <= days)
-        {
-            ans = mid;
-            high = mid;
-        }
-        else
-        {
-            low = mid;
-        }
-    }
-
-    cout << ans << endl;
+    //     cout << ans << endl;
+    // }
+    // else
+    // {
+    //     cout << (double)v[n + m / 2];
+    // }

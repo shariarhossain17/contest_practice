@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 #include <iostream>
-#include <vector>
 #define ll long long
 #define newLine cout << "\n"
 #define pb push_back
@@ -14,36 +13,42 @@ using namespace std;
         cin >> (a[i]);           \
     }
 
-int house_robber(vector<int> &v, int n, vector<int> &dp)
+int maxi(vector<int> &nums)
 {
-    if (n == 0)
-        return v[n];
-    if (n < 0)
-        return 0;
+    int previous = nums[0];
+    int previous2 = 0;
+    for (int i = 1; i < nums.size(); i++)
+    {
+        int take = nums[i] + (i > 1 ? previous2 : 0);
 
-    if (dp[n] != -1)
-        return dp[n];
+        int non_take = 0 + previous;
 
-    int take = house_robber(v, n - 2, dp) + v[n];
+        int cur = max(take, non_take);
 
-    int not_take = 0 + house_robber(v, n - 1, dp);
+        previous2 = previous;
+        previous = cur;
+    }
 
-    return dp[n] = max(take, not_take);
+    return previous;
 }
-
 void solve()
 {
     int n;
     cin >> n;
-
     vi nums(n);
     array_input_int(nums, 0, n);
+    vector<int> tmp, tmp2;
 
-    vector<int> dp(n, -1);
+    for (int i = 0; i < n; i++)
+    {
+        if (i != 0)
+            tmp.push_back(nums[i]);
+        if (i != n - 1)
+            tmp2.push_back(nums[i]);
+    }
 
-    cout << house_robber(nums, n - 1, dp) << "\n";
+    cout << max(maxi(tmp), maxi(tmp2));
 }
-
 int main()
 {
     ios_base::sync_with_stdio(false);

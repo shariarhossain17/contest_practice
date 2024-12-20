@@ -3,6 +3,9 @@
     "*.js": "javascript",
     "cmath": "cpp",
     "complex": "cpp",
-    "cstdlib": "cpp"
+    "cstdlib": "cpp",
+    "vector": "cpp",
+    "iostream": "cpp",
+    "ostream": "cpp"
   }
 }
