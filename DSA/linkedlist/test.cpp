@@ -15,21 +15,16 @@ using namespace std;
 
 void solve()
 {
-    ll a, b, c, d;
-
-    cin >> a >> b >> c >> d;
-
-    if ((a + b + c) == d or (a * b * c) == d or (a - b - c) == d or (a + b - c) == d or (a - b + c) == d or (a * b + c) == d or (a + b * c) == d)
-        Yes;
-    else
-        No;
 }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    solve();
-
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
     return 0;
 }

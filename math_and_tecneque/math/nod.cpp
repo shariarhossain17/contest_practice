@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+#include <iostream>
 #define ll long long
 #define newLine cout << "\n"
 #define pb push_back
@@ -13,32 +13,32 @@ using namespace std;
         cin >> (a[i]);           \
     }
 
-int big_mod(int a, int b, int c)
-{
-    if (b == 0)
-        return 1;
-
-    if (b % 2 == 1)
-    {
-        int ans = a * big_mod(a, b - 1, c) % c;
-        return ans;
-    }
-    else
-    {
-        int x = big_mod(a, b / 2, c) % c;
-        return x * x % c;
-    }
-}
-
 void solve()
 {
-    int a, b, mod;
-    cin >> a >> b >> mod;
+    int n;
+    cin >> n;
 
-    int inverse = big_mod(b, mod - 2, mod);
-    cout << (1LL * a % mod) * (inverse % mod) % mod << "\n";
+    int divisor = 1;
+
+    for (int i = 2; i * i <= n; i++)
+    {
+
+        int power = 0;
+
+        while (n % i == 0)
+        {
+            power++;
+            n /= i;
+        }
+
+        divisor *= (power + 1);
+    }
+
+    if (n >= 2)
+        divisor *= (1 + 1);
+
+    cout << divisor;
 }
-
 int main()
 {
     ios_base::sync_with_stdio(false);

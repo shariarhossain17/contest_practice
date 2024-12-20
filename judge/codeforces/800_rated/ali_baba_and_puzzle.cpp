@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+#include <iostream>
 #define ll long long
 #define newLine cout << "\n"
 #define pb push_back
@@ -14,33 +15,14 @@ using namespace std;
 
 void solve()
 {
+    ll a, b, c, d;
 
-    int n, m;
-    cin >> n >> m;
-    vector<vector<int>> ar(n, vector<int>(m));
+    cin >> a >> b >> c >> d;
 
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            cin >> ar[i][j];
-        }
-    }
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            cout << ar[i][j] << " ";
-        }
-        newLine;
-    }
-
-    newLine;
-
-    for (int i = 0; i < m; i++)
-    {
-        cout << ar[0][i] << " ";
-    }
+    if ((a + b - c) == d or (a - b + c) == d or (a - b * c) == d or (a * b - c) == d or (a * b + c) == d or (a + b * c) == d)
+        Yes;
+    else
+        No;
 }
 int main()
 {

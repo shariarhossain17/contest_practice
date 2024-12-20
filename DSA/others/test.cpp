@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+#include <iostream>
 #define ll long long
 #define newLine cout << "\n"
 #define pb push_back
@@ -13,36 +13,29 @@ using namespace std;
         cin >> (a[i]);           \
     }
 
-int mod_recursion(int n, int b, int mod)
+string solve(ll number)
 {
-    if (b == 0)
-        return 1;
+    string result = "";
 
-    if (b % 2 == 1)
+    while (number > 0)
     {
-        return (n % mod * mod_recursion(n, b - 1, mod)) % mod;
+        number--;
+        char letter = 65 + (number % 26);
+
+        result = letter + result;
+        number /= 26;
     }
-    else
-    {
-        int x = mod_recursion(n % mod, b / 2, mod) % mod;
-        return (x * x) % mod;
-    }
+
+    return result;
 }
 
-void solve()
-{
-
-    int n, b, mod;
-    cin >> n >> b >> mod;
-
-    cout << mod_recursion(n, b, mod);
-}
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    solve();
+    ll t;
+    cin >> t;
+    cout << solve(t);
 
     return 0;
 }

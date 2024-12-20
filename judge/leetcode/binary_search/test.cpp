@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #include <iostream>
+#include <iomanip>
 #define ll long long
 #define newLine cout << "\n"
 #define pb push_back
@@ -18,43 +19,30 @@ void solve()
 
     int n;
     cin >> n;
+    string s;
+    cin >> s;
 
-    if (n <= 1)
+    int first = -1, second = -1;
+    bool f = false;
+
+    for (int i = 0; i < s.size(); i++)
     {
-        No;
-        return;
-    }
-
-    // bool is_prime = false;
-
-    // for (int i = 2; i <= n - 1; i++)
-    // {
-    //     if (n % i == 0)
-    //         is_prime = true;
-    // }
-
-    // if (is_prime)
-    //     No;
-    // else
-    //     Yes;
-
-    for (int i = 2; i <= n; i++)
-    {
-
-        bool is_prime = true;
-        for (int j = 2; j * j <= i; j++)
+        if (s[i] == 'B' && !f)
         {
-            if (i % j == 0)
-            {
-                is_prime = false;
-                break;
-            }
+            first = i;
+            f = true;
         }
 
-        if (is_prime)
-            cout << i << " ";
+        if (s[i] == 'B')
+            second = i;
     }
+
+    if (first == -1 && second == -1)
+        cout << "0\n";
+    else
+        cout << (second - first) + 1 << endl;
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);

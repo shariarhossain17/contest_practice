@@ -14,57 +14,45 @@ using namespace std;
         cin >> (a[i]);           \
     }
 
-void solve()
+int solve()
 {
     int n;
     cin >> n;
 
     vi nums(n);
     array_input_int(nums, 0, n);
-    int l = 0, h = n - 1;
 
-    int idx = -1;
-    int ans = INT_MAX;
+    int low = 1, high = n - 2;
 
-    while (l <= h)
+    while (low <= high)
     {
-        int mid = l + (h - l) / 2;
+        int mid = low + (high - low) / 2;
 
-        if (nums[l] <= nums[h])
+        if (n == 1)
+            return nums[0];
+
+        if (nums[0] != nums[1])
+            return nums[0];
+
+        if (nums[n - 1] != nums[n - 2])
+            return nums[n - 1];
+
+        if (nums[mid] != nums[mid - 1] and nums[mid] != nums[mid + 1])
         {
-            if (nums[l] < ans)
-            {
-                idx = l;
-                ans = nums[l];
-            }
-
-            break;
+            return nums[mid];
         }
 
-        if (nums[mid] >= nums[l])
+        if ((mid % 2 == 1 and nums[mid] == nums[mid - 1]) or (mid % 2 == 0 and nums[mid] == nums[mid + 1]))
         {
-
-            if (nums[l] < ans)
-            {
-                idx = l;
-                ans = nums[l];
-            }
-
-            l = mid + 1;
+            low = mid + 1;
         }
         else
         {
-
-            h = mid - 1;
-            if (nums[mid] < ans)
-            {
-                idx = mid;
-                ans = nums[mid];
-            }
+            high = mid - 1;
         }
     }
 
-    cout << ans << endl;
+    return -1;
 }
 int main()
 {
@@ -74,7 +62,7 @@ int main()
     cin >> t;
     while (t--)
     {
-        solve();
+        cout << solve();
     }
     return 0;
 }

@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+#include <iostream>
 #define ll long long
 #define newLine cout << "\n"
 #define pb push_back
@@ -24,34 +24,50 @@ int frog_jump(vector<int> &v, int k, int n, vector<int> &dp)
     if (dp[n] != -1)
         return dp[n];
 
-    int left_jump = frog_jump(v, k, n - 1, dp) + abs(v[n] - v[n - 1]);
+    int mn_step = INT_MAX;
 
-    int right_jump = INT_MAX;
-
-    if (n > k)
+    for (int i = 1; i <= k; i++)
     {
-        right_jump = frog_jump(v, k, n - k, dp) + abs(v[n] - v[n - k]);
 
-        cout << n - k << " ";
+        if (n - i >= 0)
+        {
+            int jump = frog_jump(v, k, n - i, dp) + abs(v[n] - v[n - i]);
+            mn_step = min(jump, mn_step);
+        }
     }
 
-    return dp[n] = min(left_jump, right_jump);
+    dp[n] = mn_step;
+
+    return mn_step;
 }
 
 void solve()
 {
+
     int n, k;
     cin >> n >> k;
 
     vi v(n);
 
-    vector<int> dp(n, -1);
     array_input_int(v, 0, n);
+    vector<int> dp(n, -1);
 
-    frog_jump(v, k, n - 1, dp);
+    dp[0] = 0;
+    for (int i = 1; i < n; i++)
+    {
+        int mnm = INT_MAX;
+        for (int j = 1; j <= k; j++)
+        {
+            if (i - j >= 0)
+            {
+                int jump = dp[i - j] + abs(v[i] - v[i - j]);
+                mnm = min(jump, mnm);
+            }
+        }
+        dp[i] = mnm;
+    }
 
-    // for (int i = 0; i <= n; i++)
-    //     cout << dp[i] << " ";
+    cout << dp[n - 1];
 }
 int main()
 {

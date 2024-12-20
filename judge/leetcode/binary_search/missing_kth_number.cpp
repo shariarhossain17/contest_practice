@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #include <iostream>
+#include <set>
 #define ll long long
 #define newLine cout << "\n"
 #define pb push_back
@@ -15,21 +16,38 @@ using namespace std;
 
 void solve()
 {
-    ll a, b, c, d;
+    int n, k;
+    cin >> n >> k;
 
-    cin >> a >> b >> c >> d;
+    vi nums(n);
+    array_input_int(nums, 0, n);
 
-    if ((a + b + c) == d or (a * b * c) == d or (a - b - c) == d or (a + b - c) == d or (a - b + c) == d or (a * b + c) == d or (a + b * c) == d)
-        Yes;
-    else
-        No;
+    set<int> numSet(nums.begin(), nums.end());
+
+    vi missing_array;
+
+    for (int i = 1; i <= 1000; i++)
+    {
+        if (numSet.find(i) == numSet.end())
+        {
+            missing_array.pb(i);
+        }
+    }
+
+    cout << missing_array[k - 1];
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    solve();
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
 
     return 0;
 }
